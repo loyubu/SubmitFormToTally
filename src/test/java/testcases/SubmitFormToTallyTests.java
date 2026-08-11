@@ -11,7 +11,7 @@ public class SubmitFormToTallyTests extends BaseTest{
     private SubmitFormToTallyTests() {
     }
 
-    @Test(priority = 1, groups = {"Retest"})
+    @Test(priority = 1, groups = {"Retest", "No-CV"})
     public void sendFormWithNoCv() {
         CandidateData data = new CandidateData();
 
@@ -28,7 +28,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 " | Position: " + data.getPosition());
     }
 
-    @Test(priority = 2, groups = {"Retest"})
+    @Test(priority = 2, groups = {"Retest", "Selection"})
     public void sendFormThatMatchSelectionCriteria() {
         CandidateData data = new CandidateData();
         String position = "Warehouse Supervisor";
@@ -48,7 +48,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 " | Position: " + data.getPosition());
     }
 
-    @Test(priority = 3, groups = {"Retest"})
+    @Test(priority = 3, groups = {"Retest", "No-selection"})
     public void sendFormThatDoesNotMatchSelectionCriteria() {
         CandidateData data = new CandidateData();
         String position = "Logistics Coordinator";
