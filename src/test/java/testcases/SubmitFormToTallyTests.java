@@ -68,9 +68,10 @@ public class SubmitFormToTallyTests extends BaseTest{
                 " | Position: " + data.getPosition());
     }
 
-    @Test(invocationCount = 7, priority = 4, groups = {"Retest"})
+    @Test(invocationCount = 7, priority = 4, groups = {"Retest", "Multiple-7-tests"})
     public void sendFormWithRandomData() {
         CandidateData data = new CandidateData();
+        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())

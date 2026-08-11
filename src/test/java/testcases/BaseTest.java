@@ -2,6 +2,7 @@ package testcases;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.FormPage;
@@ -17,7 +18,12 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        driver = WebDriverManager.chromedriver().create();
+        ChromeOptions options = new org.openqa.selenium.chrome.ChromeOptions();
+        options.addArguments("--headless=new"); // Ensures Chrome runs headlessly on CI
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.get(url);
 
         formPage = new FormPage(driver);
