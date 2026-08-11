@@ -6,7 +6,7 @@
     <test name="Regression Tests">
         <groups>
             <run>
-                <include name='Multiple-7-tests'></include>
+                <include name='Multiple-7-tests'/>
             </run>
         </groups>
         <classes>

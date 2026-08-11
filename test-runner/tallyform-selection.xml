@@ -6,7 +6,7 @@
     <test name="Regression Tests">
         <groups>
             <run>
-                <include name='Selection'></include>
+                <include name='Selection'/>
             </run>
         </groups>
         <classes>
