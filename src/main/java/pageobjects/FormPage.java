@@ -2,7 +2,6 @@ package pageobjects;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
@@ -14,9 +13,7 @@ public class FormPage extends BasePage {// Locators
     private final By coverLetterField = By.id("e3b1118f-99c5-4d80-bc03-2958db870810");
     private final By submitButton = By.xpath("//button[@type='submit']");
 
-    //43bf7c75-da13-4e16-b204-417073132b43
-
-    public FormPage(WebDriver driver) {
+  public FormPage(WebDriver driver) {
         super(driver);
     }
 
@@ -73,6 +70,9 @@ public class FormPage extends BasePage {// Locators
         return this;
     }
 
+    /**
+     * @return
+     */
     public FormPage clickSubmit() {
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
         driver.findElement(submitButton).click();

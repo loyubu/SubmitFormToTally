@@ -6,9 +6,9 @@ import utils.CandidateData;
 
 import java.time.Duration;
 
-public class SubmitFormToTally extends BaseTest{
+public class SubmitFormToTallyTests extends BaseTest{
 
-    private SubmitFormToTally() {
+    private SubmitFormToTallyTests() {
     }
 
     @Test(priority = 1, groups = {"Retest"})
