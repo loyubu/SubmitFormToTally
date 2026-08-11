@@ -1,0 +1,24 @@
+name: Thrice Weekly Test Suite
+
+on:
+  schedule:
+    # Runs every Monday, Wednesday, and Friday at 8:00 AM UTC (1 = Mon, 3 = Wed, 5 = Fri)
+    - cron: '0 8 * * 1,3,5'
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-frequent-suites:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run 3 Test Suites via Maven
+        run: >
+          mvn test -DsuiteXmlFile=test-runner/tallyform-no-cv-test.xml,test-runner/tallyform-no-selection.xml,test-runner/tallyform-selection.xml

@@ -1,0 +1,23 @@
+name: Weekly Test Suite
+
+on:
+  schedule:
+    # Runs every Saturday at 8:00 AM UTC
+    - cron: '0 8 * * 6'
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-weekly-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run Weekly Suite XML
+        run: mvn test -DsuiteXmlFile=test-runner/tallyform-multiple-7-tests.xml
