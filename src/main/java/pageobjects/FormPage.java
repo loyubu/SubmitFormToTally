@@ -2,6 +2,8 @@ package pageobjects;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -12,6 +14,7 @@ public class FormPage extends BasePage {// Locators
     private final By cvLinkField = By.id("6dee95d4-a67c-4735-be2d-77aa5bbed466");
     private final By coverLetterField = By.id("e3b1118f-99c5-4d80-bc03-2958db870810");
     private final By submitButton = By.xpath("//button[@type='submit']");
+    private final By thankYouMessage = By.xpath("//h1[@data-sentry-element='Title']");
 
   public FormPage(WebDriver driver) {
         super(driver);
@@ -19,7 +22,9 @@ public class FormPage extends BasePage {// Locators
 
     public FormPage enterFullName(String name) {
         waitForElementPresence(nameField,10);
-        driver.findElement(nameField).sendKeys(name);
+        WebElement element = driver.findElement(nameField);
+        element.sendKeys(name);// Dispatch input event so Tally registers the state change
+        ((JavascriptExecutor) driver).executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", element);
         return this;
     }
 
@@ -37,6 +42,7 @@ public class FormPage extends BasePage {// Locators
         phoneInput.sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE);
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(1));
         phoneInput.sendKeys(phone);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", phoneInput);
         return this;
     }
 
@@ -75,7 +81,15 @@ public class FormPage extends BasePage {// Locators
      */
     public FormPage clickSubmit() {
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
-        driver.findElement(submitButton).click();
+        driver.findElement(submitButton).click();// Wait until Tally redirects or displays the submission confirmation element
+        WebDriverWait submitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        submitWait.until(ExpectedConditions.or(
+               //xpectedConditions.urlContains("submitted"),
+                ExpectedConditions.presenceOfElementLocated(thankYouMessage)
+        ));
+
+        // Brief pause to allow background network requests to complete
+        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
         return this;
     }
 
