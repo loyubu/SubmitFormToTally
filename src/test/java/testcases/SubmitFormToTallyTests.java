@@ -36,13 +36,14 @@ public class SubmitFormToTallyTests extends BaseTest{
         String position = "Warehouse Supervisor";
         String experienceLevel = "8+ years";
         String coverLetter= "Application Should be SHORTLISTED";
+        String cvLink = "https://drive.google.com/file/d/1oOR4KM_sTZC_H9QAI1Jp07QwrqZ-zA_B/view?usp=drive_link";
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())
                 .enterPhoneNumber(data.getPhone())
                 .selectPosition(position)
                 .selectExperienceLevel(experienceLevel)
-                .enterCvLink(data.getCvLink())
+                .enterCvLink(cvLink)
                 .enterCoverLetter(coverLetter)
                 .clickSubmit();
 
@@ -57,6 +58,7 @@ public class SubmitFormToTallyTests extends BaseTest{
         CandidateData data = new CandidateData();
         String position = "Logistics Coordinator";
         String experienceLevel = "0 - 2 years";
+        String cvLink = "https://drive.google.com/file/d/1-C-IRKUrqC-YMRmrBwdXo1FLiiHfZPBG/view?usp=drive_link";
         String coverLetter= "Application Should NOT be Shortlisted";
 
         formPage.enterFullName(data.getFullName())
@@ -64,7 +66,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterPhoneNumber(data.getPhone())
                 .selectPosition(position)
                 .selectExperienceLevel(experienceLevel)
-                .enterCvLink(data.getCvLink())
+                .enterCvLink(cvLink)
                 .enterCoverLetter(coverLetter)
                 .clickSubmit();
 
