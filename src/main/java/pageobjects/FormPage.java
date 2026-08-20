@@ -12,7 +12,7 @@ public class FormPage extends BasePage {// Locators
     private final By emailField = By.id("bb5c6e03-3bdd-4531-8264-90180aa1ac5e");
     private final By phoneField = By.id("985f164e-e994-43a4-ae74-1bc08fde2164");
     private final By cvLinkField = By.id("6dee95d4-a67c-4735-be2d-77aa5bbed466");
-    private final By coverLetterField = By.id("e3b1118f-99c5-4d80-bc03-2958db870810");
+    private final By currentLocation = By.id("85897ef4-6853-499a-ac65-5369e4a104d4");
     private final By submitButton = By.xpath("//button[@type='submit']");
     private final By thankYouMessage = By.xpath("//h1[@data-sentry-element='Title']");
 
@@ -70,9 +70,9 @@ public class FormPage extends BasePage {// Locators
         return this;
     }
 
-    public FormPage enterCoverLetter(String coverLetter) {
-        waitForElementPresence(coverLetterField, 5);
-        driver.findElement(coverLetterField).sendKeys(coverLetter);
+    public FormPage enterCurrentLocation(String location) {
+        waitForElementPresence(currentLocation, 5);
+        driver.findElement(currentLocation).sendKeys(location);
         return this;
     }
 

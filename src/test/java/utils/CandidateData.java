@@ -13,7 +13,7 @@ public class CandidateData {
     private final String phone;
     private final String position;
     private final String experience;
-    private final String coverLetter;
+    private final String currentLocation;
     private final String cvLink;
 
     public CandidateData() {
@@ -34,7 +34,7 @@ public class CandidateData {
 
         this.position = positions[random.nextInt(positions.length)];
         this.experience = experienceLevels[random.nextInt(experienceLevels.length)];
-        this.coverLetter = faker.lorem().paragraph();
+        this.currentLocation = String.valueOf(faker.address());
 
         // Build Matrix
         Map<String, Map<String, String>> cvLookupMatrix = new HashMap<>();
@@ -69,6 +69,6 @@ public class CandidateData {
     public String getPhone() { return phone; }
     public String getPosition() { return position; }
     public String getExperience() { return experience; }
-    public String getCoverLetter() { return coverLetter; }
+    public String getCurrentLocation() { return currentLocation; }
     public String getCvLink() { return cvLink; }
 }

@@ -14,14 +14,13 @@ public class SubmitFormToTallyTests extends BaseTest{
     @Test(priority = 1, groups = {"Retest", "No-CV"})
     public void sendFormWithNoCv() {
         CandidateData data = new CandidateData();
-        String coverLetter= "No CV link attached: Do NOT save application & send email to applicant to reapply";
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())
                 .enterPhoneNumber(data.getPhone())
                 .selectPosition(data.getPosition())
                 .selectExperienceLevel(data.getExperience())
-                .enterCoverLetter(coverLetter)
+                .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
         System.out.println("Submitted: " + data.getFullName() +
@@ -35,7 +34,6 @@ public class SubmitFormToTallyTests extends BaseTest{
         CandidateData data = new CandidateData();
         String position = "Warehouse Supervisor";
         String experienceLevel = "8+ years";
-        String coverLetter= "Application Should be SHORTLISTED";
         String cvLink = "https://drive.google.com/file/d/1oOR4KM_sTZC_H9QAI1Jp07QwrqZ-zA_B/view?usp=drive_link";
 
         formPage.enterFullName(data.getFullName())
@@ -44,7 +42,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .selectPosition(position)
                 .selectExperienceLevel(experienceLevel)
                 .enterCvLink(cvLink)
-                .enterCoverLetter(coverLetter)
+                .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
         System.out.println("Submitted: " + data.getFullName() +
@@ -59,7 +57,6 @@ public class SubmitFormToTallyTests extends BaseTest{
         String position = "Logistics Coordinator";
         String experienceLevel = "0 - 2 years";
         String cvLink = "https://drive.google.com/file/d/1-C-IRKUrqC-YMRmrBwdXo1FLiiHfZPBG/view?usp=drive_link";
-        String coverLetter= "Application Should NOT be Shortlisted";
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())
@@ -67,7 +64,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .selectPosition(position)
                 .selectExperienceLevel(experienceLevel)
                 .enterCvLink(cvLink)
-                .enterCoverLetter(coverLetter)
+                .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
         System.out.println("Submitted: " + data.getFullName() +
@@ -87,7 +84,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .selectPosition(data.getPosition())
                 .selectExperienceLevel(data.getExperience())
                 .enterCvLink(data.getCvLink())
-                .enterCoverLetter(data.getCoverLetter())
+                .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
         System.out.println("Submitted: " + data.getFullName() +
