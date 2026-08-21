@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Weekly Suite XML
-        run: mvn test -DsuiteXmlFile=test-runner/tallyform-multiple-7-tests.xml
+        run: mvn test -DsuiteXmlFile=test-runner/tallyform-7-random-tests.xml
