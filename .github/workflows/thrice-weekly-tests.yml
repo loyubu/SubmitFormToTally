@@ -21,4 +21,4 @@ jobs:
 
       - name: Run 3 Test Suites via Maven
         run: >
-          mvn test -DsuiteXmlFile=test-runner/tallyform-no-cv-test.xml,test-runner/tallyform-no-selection.xml,test-runner/tallyform-selection.xml
+          mvn test -DsuiteXmlFile=test-runner/tallyform-no-cv-link.xml,test-runner/tallyform-not-selected.xml,test-runner/tallyform-selected.xml
