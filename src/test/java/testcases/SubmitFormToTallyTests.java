@@ -23,7 +23,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
-        System.out.println("Submitted: " + data.getFullName() +
+        System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
                 " | Position: " + data.getPosition() +
                 " | Years of Exp: " + data.getExperience());
@@ -45,7 +45,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
-        System.out.println("Submitted: " + data.getFullName() +
+        System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
                 " | Position: " + position +
                 " | Years of Exp: " + experienceLevel);
@@ -67,7 +67,7 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
-        System.out.println("Submitted: " + data.getFullName() +
+        System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
                 " | Position: " + position +
                 " | Years of Exp: " + experienceLevel);
