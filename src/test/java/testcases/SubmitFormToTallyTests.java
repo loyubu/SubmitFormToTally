@@ -1,10 +1,14 @@
 package testcases;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageobjects.CompletionPage;
 import utils.CandidateData;
 
 import java.time.Duration;
+
+import static utils.Constants.FORM_COMPLETION_TEXT;
 
 public class SubmitFormToTallyTests extends BaseTest{
 
@@ -22,6 +26,12 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .selectExperienceLevel(data.getExperience())
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
+
+        CompletionPage completionPage = new CompletionPage(driver);
+
+        String confirmationText = completionPage.getFormCompletionMessage();
+
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
 
         System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
@@ -45,6 +55,12 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
+        CompletionPage completionPage = new CompletionPage(driver);
+
+        String confirmationText = completionPage.getFormCompletionMessage();
+
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
+
         System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
                 " | Position: " + position +
@@ -67,6 +83,12 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
 
+        CompletionPage completionPage = new CompletionPage(driver);
+
+        String confirmationText = completionPage.getFormCompletionMessage();
+
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
+
         System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
                 " | Position: " + position +
@@ -86,6 +108,12 @@ public class SubmitFormToTallyTests extends BaseTest{
                 .enterCvLink(data.getCvLink())
                 .enterCurrentLocation(data.getCurrentLocation())
                 .clickSubmit();
+
+        CompletionPage completionPage = new CompletionPage(driver);
+
+        String confirmationText = completionPage.getFormCompletionMessage();
+
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
 
         System.out.println("Submitted: " + data.getFullName() +
                 " | Email: " + data.getEmail() +

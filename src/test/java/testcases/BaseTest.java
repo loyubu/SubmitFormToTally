@@ -7,10 +7,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.FormPage;
 
+import static utils.Constants.BASE_URL;
+
 public class BaseTest {
 
     public WebDriver driver;
-    public final String url = "https://tally.so/r/PdNx90";
 
     FormPage formPage;
 
@@ -31,7 +32,7 @@ public class BaseTest {
         options.setExperimentalOption("useAutomationExtension", false);
 
         driver = WebDriverManager.chromedriver().capabilities(options).create();
-        driver.get(url);
+        driver.get(BASE_URL);
 
         formPage = new FormPage(driver);
 
