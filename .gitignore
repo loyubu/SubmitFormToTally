@@ -37,3 +37,33 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/ict_images/ICT_Roadmap_chart_1.png
+/ict_images/ICT_Roadmap_chart_4.png
+/ict_images/ICT_Roadmap_diagram_1.svg
+/ict_images/ICT_Roadmap_diagram_2.svg
+/ict_images/ICT_Roadmap_diagram_3.svg
+/ict_images/ICT_Roadmap_diagram_4.svg
+/ict_images/ICT_Roadmap_diagram_7.svg
+/ict_images/ICT_Roadmap_diagram_8.svg
+/ict_images/ICT_Roadmap_diagram_9.svg
+/ict_images/ICT_Roadmap_diagram_10.svg
+/ict_images/ICT_Roadmap_diagram_11.svg
+/ict_images/ICT_Roadmap_diagram_14.svg
+/ict_images/ICT_Roadmap_diagram_15.svg
+/ict_images/ICT_Roadmap_diagram_16.svg
+/ict_images/ICT_Roadmap_diagram_17.svg
+/ict_images/ICT_Roadmap_diagram_18.svg
+/ict_images/ICT_Roadmap_diagram_21.svg
+/ict_images/ICT_Roadmap_diagram_22.svg
+/ict_images/ICT_Roadmap_diagram_23.svg
+/ict_images/ICT_Roadmap_diagram_24.svg
+/ict_images/ICT_Roadmap_diagram_25.svg
+/ict_images/ICT_Roadmap_diagram_26.svg
+/ict_images/ICT_Roadmap_diagram_27.svg
+
+# Ignore scraper test class
+src/test/java/scraper/DeepImageScraper.java
+
+# Ignore curriculum CSV data
+ict_complete_curriculum.csv
+
