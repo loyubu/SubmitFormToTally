@@ -31,7 +31,8 @@ public class SubmitFormToTallyTests extends BaseTest{
 
         String confirmationText = completionPage.getFormCompletionMessage();
 
-        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT,
+                "Tally did not confirm the no-CV submission for " + data.getEmail());
 
         System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
