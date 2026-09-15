@@ -69,3 +69,6 @@ src/test/java/scraper/DeepImageScraper.java
 # Ignore curriculum CSV data
 ict_complete_curriculum.csv
 
+desktop.ini
+Thumbs.db
+.DS_Store
