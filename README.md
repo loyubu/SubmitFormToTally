@@ -86,7 +86,6 @@ Nothing environment-specific is committed. Set these as GitHub Actions repositor
 | Secret | Purpose |
 |---|---|
 | `TALLY_FORM_URL` | The live form the suite submits to |
-| `CV_LINK_VALID` | A shareable CV link used by the fixed shortlist scenarios |
 
 ## Roadmap
 
