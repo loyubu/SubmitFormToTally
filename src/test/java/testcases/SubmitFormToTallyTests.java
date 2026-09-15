@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.CompletionPage;
 import utils.CandidateData;
+import utils.CvLibrary;
 
 import java.time.Duration;
 
@@ -31,7 +32,8 @@ public class SubmitFormToTallyTests extends BaseTest{
 
         String confirmationText = completionPage.getFormCompletionMessage();
 
-        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT);
+        Assert.assertEquals(confirmationText, FORM_COMPLETION_TEXT,
+                "Tally did not confirm the no-CV submission for " + data.getEmail());
 
         System.out.println("Submitted By: " + data.getFullName() +
                 " | Email: " + data.getEmail() +
@@ -44,7 +46,7 @@ public class SubmitFormToTallyTests extends BaseTest{
         CandidateData data = new CandidateData();
         String position = "Warehouse Supervisor";
         String experienceLevel = "8+ years";
-        String cvLink = "https://drive.google.com/file/d/1oOR4KM_sTZC_H9QAI1Jp07QwrqZ-zA_B/view?usp=drive_link";
+        String cvLink = CvLibrary.forRole(position, experienceLevel);
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())
@@ -72,7 +74,7 @@ public class SubmitFormToTallyTests extends BaseTest{
         CandidateData data = new CandidateData();
         String position = "Logistics Coordinator";
         String experienceLevel = "0 - 2 years";
-        String cvLink = "https://drive.google.com/file/d/1-C-IRKUrqC-YMRmrBwdXo1FLiiHfZPBG/view?usp=drive_link";
+        String cvLink = CvLibrary.forRole(position, experienceLevel);
 
         formPage.enterFullName(data.getFullName())
                 .enterEmail(data.getEmail())

@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import java.util.*;
 
 import static utils.CandidateData.NigerianLocationGenerator.generateNigerianLocation;
+import static utils.Constants.*;
 
 public class CandidateData {
 
@@ -36,33 +37,11 @@ public class CandidateData {
         this.experience = experienceLevels[random.nextInt(experienceLevels.length)];
         this.currentLocation = generateNigerianLocation();
 
-        // Build Matrix
-        Map<String, Map<String, String>> cvLookupMatrix = new HashMap<>();
-
-        Map<String, String> deliveryCv = new HashMap<>();
-        deliveryCv.put("0 - 2 years", "https://drive.google.com/file/d/1tYs0n-5f97nVh5Vy7M9H56U7gyCu_EkD/view?usp=drive_link");
-        deliveryCv.put("3 - 5 years", "https://drive.google.com/file/d/1kxEZjZ21XyK6o0aCG6RXv1PMzP0D_lIO/view?usp=drive_link");
-        deliveryCv.put("6 - 8 years", "https://drive.google.com/file/d/1L_aqGmAi7IJu16bYPrYPwHoTqqUYHX4W/view?usp=drive_link");
-        deliveryCv.put("8+ years", "https://drive.google.com/file/d/1HKadxlCyicURtT1RLSF-skYBK1KaaYJz/view?usp=drive_link");
-        cvLookupMatrix.put("Delivery Driver", deliveryCv);
-
-        Map<String, String> logisticsCv = new HashMap<>();
-        logisticsCv.put("0 - 2 years", "https://drive.google.com/file/d/1-C-IRKUrqC-YMRmrBwdXo1FLiiHfZPBG/view?usp=drive_link");
-        logisticsCv.put("3 - 5 years", "https://drive.google.com/file/d/13xbaSVkudQUXt95UepxSqJ7huBc5vbzJ/view?usp=drive_link");
-        logisticsCv.put("6 - 8 years", "https://drive.google.com/file/d/1woL4lxBG0Zmg9fdzIjYTxdO4q_-IrwlJ/view?usp=drive_link");
-        logisticsCv.put("8+ years", "https://drive.google.com/file/d/1cmAqO2ScuFqc6KVUrbMH1diu0JoIaOE9/view?usp=drive_link");
-        cvLookupMatrix.put("Logistics Coordinator", logisticsCv);
-
-        Map<String, String> warehouseCv = new HashMap<>();
-        warehouseCv.put("0 - 2 years", "https://drive.google.com/file/d/1SWra9xx-xQGWHutXvT35TdaYRR4Gy1Nx/view?usp=drive_link");
-        warehouseCv.put("3 - 5 years", "https://drive.google.com/file/d/1pfBSpWcYHvW3F9DfQNkxizR9tnmO--Qu/view?usp=drive_link");
-        warehouseCv.put("6 - 8 years", "https://drive.google.com/file/d/1DHjztioTcBuCkf65atGEpvMcWcFvmBU8/view?usp=drive_link");
-        warehouseCv.put("8+ years", "https://drive.google.com/file/d/1oOR4KM_sTZC_H9QAI1Jp07QwrqZ-zA_B/view?usp=drive_link");
-        cvLookupMatrix.put("Warehouse Supervisor", warehouseCv);
-
         boolean includeCV = random.nextDouble() > 0.1;
-        this.cvLink = includeCV ? cvLookupMatrix.get(this.position).get(this.experience) : "";
+        this.cvLink = includeCV ? CvLibrary.forRole(this.position, this.experience) : "";
     }
+
+
 
     public String getFullName() { return fullName; }
     public String getEmail() { return email; }

@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.FormPage;
-
-import static utils.Constants.BASE_URL;
+import static utils.Constants.baseUrl;
 
 public class BaseTest {
 
@@ -32,7 +31,7 @@ public class BaseTest {
         options.setExperimentalOption("useAutomationExtension", false);
 
         driver = WebDriverManager.chromedriver().capabilities(options).create();
-        driver.get(BASE_URL);
+        driver.get(baseUrl());
 
         formPage = new FormPage(driver);
 

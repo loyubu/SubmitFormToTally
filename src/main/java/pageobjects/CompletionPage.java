@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class CompletionPage extends BasePage{
 
-    private final By formCompletionMessage = By.xpath("//h1[text()='Thanks for completing this form!']");
+    private final By formCompletionMessage = By.xpath("//h1[@data-sentry-element='Title']");
 
     public CompletionPage(WebDriver driver) {
         super(driver);
     }
 
     public String getFormCompletionMessage() {
-
-        return  driver.findElement(formCompletionMessage).getText();
+        waitForElementPresence(formCompletionMessage, 10);
+        return  driver.findElement(formCompletionMessage).getText().trim();
     }
 }
